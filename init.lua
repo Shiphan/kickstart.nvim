@@ -580,8 +580,18 @@ require('lazy').setup({
         gopls = {},
         rust_analyzer = {},
         bashls = {},
-        html = {},
+        html = {
+          init_options = {
+            configurationSection = { 'html', 'css', 'javascript' },
+            embeddedLanguages = {
+              css = true,
+              javascript = true,
+            },
+            provideFormatter = false,
+          },
+        },
         htmx = {},
+        templ = {},
         cssls = {},
         kotlin_language_server = {},
         svelte = {},
