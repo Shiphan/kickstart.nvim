@@ -579,24 +579,26 @@ require('lazy').setup({
         },
         gopls = {},
         rust_analyzer = {},
+        kotlin_language_server = {},
+        pyright = {},
+        -- dartls = {},
+
         bashls = {},
+        -- nil_ls = {},
+        -- nixd = {},
+        hyprls = {},
+        jsonls = {},
+
         html = {
           init_options = {
-            configurationSection = { 'html', 'css', 'javascript' },
-            embeddedLanguages = {
-              css = true,
-              javascript = true,
-            },
             provideFormatter = false,
           },
         },
-        htmx = {},
-        templ = {},
         cssls = {},
-        kotlin_language_server = {},
+        htmx = {},
+
+        templ = {},
         svelte = {},
-        pyright = {},
-        -- dartls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
