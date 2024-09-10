@@ -615,6 +615,7 @@ require('lazy').setup({
         },
         gopls = {},
         rust_analyzer = {},
+        jdtls = {},
         kotlin_language_server = {},
         pyright = {},
         -- dartls = {},
@@ -642,7 +643,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        -- tsserver = {},
         --
 
         lua_ls = {
@@ -659,6 +660,11 @@ require('lazy').setup({
             },
           },
         },
+      }
+
+      local not_mason_servers = {
+        dartls = {},
+        -- postgres_lsp = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -689,6 +695,11 @@ require('lazy').setup({
           end,
         },
       }
+
+      local lspconfig = require 'lspconfig'
+      for key, value in pairs(not_mason_servers) do
+        lspconfig[key].setup(value)
+      end
     end,
   },
 
