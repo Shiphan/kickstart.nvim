@@ -459,9 +459,9 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      -- { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      -- 'williamboman/mason-lspconfig.nvim',
+      -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -663,10 +663,10 @@ require('lazy').setup({
         },
       }
 
-      local not_mason_servers = {
-        dartls = {},
-        -- postgres_lsp = {},
-      }
+      local lspconfig = require 'lspconfig'
+      for key, value in pairs(servers) do
+        lspconfig[key].setup(value)
+      end
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
@@ -674,15 +674,16 @@ require('lazy').setup({
       --    :Mason
       --
       --  You can press `g?` for help in this menu.
-      require('mason').setup()
+      -- require('mason').setup()
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
+      --[[
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
-      -- require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
         handlers = {
@@ -696,14 +697,7 @@ require('lazy').setup({
           end,
         },
       }
-
-      local lspconfig = require 'lspconfig'
-      for key, value in pairs(servers) do
-        lspconfig[key].setup(value)
-      end
-      for key, value in pairs(not_mason_servers) do
-        lspconfig[key].setup(value)
-      end
+      --]]
     end,
   },
 
