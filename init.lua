@@ -618,6 +618,7 @@ require('lazy').setup({
         jdtls = {},
         kotlin_language_server = {},
         pyright = {},
+        arduino_language_server = {},
         -- dartls = {},
         -- postgres_lsp = {},
 
