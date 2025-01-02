@@ -1,11 +1,13 @@
-# kickstart.nvim
+# kickstart-modular.nvim
 
 ## Introduction
+
+*This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
 
 A starting point for Neovim that is:
 
 * Small
-* Single-file
+* Modular
 * Completely Documented
 
 **NOT** a Neovim distribution, but instead a starting point for your configuration.
@@ -57,7 +59,7 @@ fork to your machine using one of the commands below, depending on your OS.
 
 > **NOTE**
 > Your fork's URL will be something like this:
-> `https://github.com/<your_github_username>/kickstart.nvim.git`
+> `https://github.com/<your_github_username>/kickstart-modular.nvim.git`
 
 You likely want to remove `lazy-lock.json` from your fork's `.gitignore` file
 too - it's ignored in the kickstart repo to make maintenance easier, but it's
@@ -66,7 +68,7 @@ too - it's ignored in the kickstart repo to make maintenance easier, but it's
 #### Clone kickstart.nvim
 > **NOTE**
 > If following the recommended step above (i.e., forking the repo), replace
-> `nvim-lua` with `<your_github_username>` in the commands below
+> `dam9000` with `<your_github_username>` in the commands below
 
 <details><summary> Linux and Mac </summary>
 
@@ -143,6 +145,9 @@ examples of adding popularly requested plugins.
     into smaller parts. A fork of kickstart that does this while maintaining the
     same functionality is available here:
     * [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
+  * *NOTE: This is the fork that splits the configuration into smaller parts.*
+    The original repo with the single `init.lua` file is available here:
+    * [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
   * Discussions on this topic can be found here:
     * [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
     * [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
