@@ -621,7 +621,7 @@ require('lazy').setup({
       local servers = {
         clangd = {
           init_options = {
-            fallbackFlags = { '--std=c++20' },
+            -- fallbackFlags = { '--std=c++20' },
           },
         },
         gopls = {},
@@ -632,21 +632,24 @@ require('lazy').setup({
         arduino_language_server = {},
         -- dartls = {},
         -- postgres_lsp = {},
+        hls = {},
 
         bashls = {},
         nil_ls = {},
         nixd = {},
-        hyprls = {},
-        jsonls = {},
-
-        html = {
-          init_options = {
-            provideFormatter = false,
+        hyprls = {
+          filetypes = {
+            'hyprlang',
+            'conf',
           },
         },
+        jsonls = {},
+        superhtml = {},
+        html = {},
         cssls = {},
         htmx = {},
 
+        ts_ls = {},
         templ = {},
         svelte = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -736,6 +739,8 @@ require('lazy').setup({
           c = true,
           cpp = true,
           java = true,
+          html = true,
+          css = true,
         }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
