@@ -6,21 +6,23 @@ return {
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    opts = {
-      on_highlights = function(highlights, colors)
-        highlights.LineNr = { fg = colors.fg_dark }
-        highlights.LineNrAbove = { fg = colors.fg_dark }
-        highlights.LineNrBelow = { fg = colors.fg_dark }
-      end,
-    },
-    init = function()
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('tokyonight').setup {
+        styles = {
+          comments = { italic = false }, -- Disable italics in comments
+        },
+        on_highlights = function(highlights, colors)
+          highlights.LineNr = { fg = colors.fg_dark }
+          highlights.LineNrAbove = { fg = colors.fg_dark }
+          highlights.LineNrBelow = { fg = colors.fg_dark }
+        end,
+      }
+
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
     end,
   },
 }
