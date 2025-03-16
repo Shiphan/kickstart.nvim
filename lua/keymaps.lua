@@ -35,6 +35,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>tt', '<cmd>Neotree toggle<CR>', { desc = 'Neotree: [T]oggle [T]ree' })
 vim.keymap.set('n', '<leader>tr', '<cmd>Neotree toggle reveal<CR>', { desc = 'Neotree: [T]oggle tree [R]eveal' })
 
+vim.keymap.set('n', '<leader>ts', function()
+  vim.opt.spell = not vim.opt.spell:get()
+end, { desc = '[T]oggle [S]pell checking' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
