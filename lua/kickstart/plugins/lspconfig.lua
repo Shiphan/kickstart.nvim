@@ -206,7 +206,10 @@ return {
         html = {},
         cssls = {},
         htmx = {},
+        marksman = {},
 
+        phpactor = {},
+        psalm = {},
         ts_ls = {},
         templ = {},
         svelte = {},
